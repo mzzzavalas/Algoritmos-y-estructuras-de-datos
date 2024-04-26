@@ -1,0 +1,67 @@
+Aug 16 2022 22:16:34 10.14.250.132 SQL injection
+May 14 2022 16:02:50 10.14.147.248 Weak or easily guessable passwords
+May 16 2023 09:48:49 10.14.106.187 Human error
+May 27 2023 17:03:30 10.14.5.84 Configuration errors
+Jul 20 2023 01:41:48 10.14.254.51 Unencrypted communication
+Apr 26 2023 03:32:31 10.14.67.100 SQL injection
+Feb 08 2022 18:16:11 10.14.3.84 Broken authentication and session management
+Apr 12 2023 23:01:10 10.14.53.10 Data corruption
+May 15 2022 21:43:46 10.14.48.164 Load balancing issues
+Dec 16 2022 14:21:14 10.14.247.143 Application error
+Jun 19 2022 16:05:46 10.14.146.11 SQL injection
+May 11 2023 07:33:30 10.14.139.110 Load balancing issues
+Nov 23 2022 14:40:34 10.14.39.16 Network connectivity issues
+Nov 03 2022 17:44:59 10.14.134.135 Unencrypted communication
+Oct 23 2022 06:29:35 10.14.9.15 SQL injection
+Jul 28 2022 02:26:07 10.14.31.155 Social engineering attacks
+Jul 17 2023 01:27:43 10.14.34.99 Configuration errors
+Jan 20 2023 10:34:33 10.14.204.90 Configuration errors
+Mar 30 2023 05:18:07 10.14.12.178 Human error
+Mar 26 2022 03:07:21 10.14.50.3 Weak or easily guessable passwords
+Apr 27 2023 13:13:57 10.14.110.229 Unencrypted communication
+Feb 17 2023 12:18:11 10.14.189.145 Application error
+Jun 29 2023 22:08:16 10.14.65.0 Data corruption
+Sep 09 2022 11:28:38 10.14.243.49 SQL injection
+May 27 2022 02:53:14 10.14.118.159 Data corruption
+Mar 13 2023 07:00:55 10.14.165.211 Weak or easily guessable passwords
+Apr 30 2022 02:22:28 10.14.124.187 Configuration errors
+May 18 2022 08:29:57 10.14.33.225 Security breaches
+Mar 11 2022 13:14:56 10.14.240.154 Network connectivity issues
+Aug 20 2022 13:19:31 10.14.111.228 Application error
+Feb 18 2023 05:14:57 10.14.159.248 Human error
+Jun 25 2023 17:26:06 10.14.124.90 Application error
+Jul 02 2022 09:53:10 10.14.63.240 Configuration errors
+Aug 07 2023 04:40:38 10.14.99.89 Configuration errors
+Jun 26 2023 11:10:05 10.14.139.123 Social engineering attacks
+Mar 29 2023 22:55:07 10.14.193.85 Social engineering attacks
+Apr 02 2023 13:48:11 10.14.164.127 Security breaches
+May 20 2023 08:23:59 10.14.152.232 SQL injection
+Apr 25 2022 22:21:26 10.14.90.196 Load balancing issues
+Mar 01 2023 00:28:15 10.14.213.108 Data corruption
+Sep 24 2022 21:32:59 10.14.172.237 Network connectivity issues
+Jan 12 2022 11:00:37 10.14.102.43 Weak or easily guessable passwords
+May 30 2022 04:50:30 10.14.6.81 SQL injection
+Mar 08 2023 23:27:00 10.14.116.133 Network connectivity issues
+Aug 12 2023 22:46:30 10.14.254.59 Unencrypted communication
+May 15 2023 07:39:28 10.14.207.191 Unencrypted communication
+Apr 27 2022 08:25:24 10.14.148.236 Configuration errors
+Jun 13 2023 13:56:00 10.14.177.179 Load balancing issues
+Apr 20 2023 18:01:29 10.14.40.68 Social engineering attacks
+Apr 23 2022 04:19:17 10.14.184.172 Data corruption
+Jun 03 2023 12:43:58 10.14.195.14 Data corruption
+May 08 2022 04:33:02 10.14.109.234 Unencrypted communication
+Oct 18 2022 08:35:53 10.14.56.93 Unencrypted communication
+Apr 26 2023 20:55:14 10.14.200.78 Human error
+Jun 05 2022 14:15:08 10.14.76.43 Data corruption
+Dec 30 2022 20:41:04 10.14.14.252 Social engineering attacks
+Jul 26 2023 12:26:28 10.14.210.183 Network connectivity issues
+Mar 16 2023 18:39:39 10.14.171.95 Broken authentication and session management
+Apr 17 2022 08:45:15 10.14.163.248 Data corruption
+Jan 12 2022 22:55:21 10.14.93.2 Broken authentication and session management
+Aug 05 2023 07:18:03 10.14.71.216 Broken authentication and session management
+Mar 30 2023 11:13:56 10.14.15.250 Load balancing issues
+Feb 16 2023 12:03:36 10.14.39.192 Human error
+Jun 08 2023 01:46:08 10.14.56.156 Broken authentication and session management
+Mar 03 2023 01:19:26 10.14.225.225 Load balancing issues
+Feb 13 2022 11:40:14 10.14.187.189 Network connectivity issues
+Oct 27 2022 09:51:35 10.14.67.133 SQL injection

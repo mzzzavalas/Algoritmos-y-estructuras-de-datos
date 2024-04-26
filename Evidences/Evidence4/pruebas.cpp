@@ -1,0 +1,212 @@
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <string>
+#include <set>
+#include <algorithm>
+#include <limits>
+using namespace std;
+//#include "Log.h"
+#include "Edge.h"
+#include "Graph.h"
+//#include "GraphM.h"
+//#include "Hash.h"
+
+
+// Función para encontrar el índice de una ciudad en el vector de vértices
+template <class T>
+int findCityIndex(const T& city, const vector<T>& vertices);
+
+// Función para encontrar la ruta más corta entre dos ciudades por tren
+template <class T>
+void findShortestPathByTrain(const T& start, const T& end, const Graph<T>& graph);
+// Función para encontrar la ruta más corta entre dos ciudades por carro
+template <class T>
+void findShortestPathByCar(const T& start, const T& end, const Graph<T>& graph);
+
+
+
+struct CityData {
+    string cityA;
+    string cityB;
+    int timeByTrain;
+    int distanceByTrain;
+    int timeByCar;
+    int distanceByCar;
+};
+
+
+void quickSort(vector<string>& arr, int low, int high);
+
+int partition(vector<string>& arr, int low, int high);
+
+
+
+int main() {
+    ifstream file("EuropeCities.csv");
+
+    // Saltar la primer linea
+    string line;
+    getline(file, line);
+
+    vector<CityData> data;
+    set<string> cities;
+
+    while (getline(file, line)) {
+        istringstream ss(line);
+        CityData cityData;
+        getline(ss, cityData.cityA, ',');
+        getline(ss, cityData.cityB, ',');
+
+        ss >> cityData.timeByTrain;
+        ss.ignore(); 
+
+        ss >> cityData.distanceByTrain;
+        ss.ignore();  // Ignora la comma
+
+        ss >> cityData.timeByCar;
+        ss.ignore(); 
+        ss >> cityData.distanceByCar;
+        data.push_back(cityData);
+
+        // Agrega las ciudades al set
+        cities.insert(cityData.cityA);
+        cities.insert(cityData.cityB);
+    }
+
+    //Punto 2
+    vector<string> vertices(cities.begin(), cities.end());
+    
+    //Punto 3
+    vector< Edge<string> > edges;
+    for(int i=0;i<data.size();i++){
+        if (!data.empty()) {
+        //cout << data[i].cityA << ", " << data[i].cityB << ", " << data[i].timeByTrain << ", " << data[i].distanceByTrain << ", " << data[i].timeByCar << ", " << data[i].distanceByCar<< endl;
+        edges.emplace_back(data[i].cityA, data[i].cityB, data[i].timeByTrain, data[i].distanceByTrain, data[i].timeByCar, data[i].distanceByCar);
+        }
+    }
+    Graph<string> graph(vertices, edges);
+    
+
+    //4.1
+    // Ordena el vector
+    quickSort(vertices, 0, vertices.size() - 1);
+    // Abre el archivo de salida
+    ofstream outFile("output608-1.out");
+    // Escribe las ciudades en el archivo
+    for (const string& city : vertices) {
+        outFile << city << "\n";
+    }
+    // Cierra el archivo
+    outFile.close();
+
+    //4.2
+    graph.print();
+
+    //4.3
+    /*
+    string inicio;
+    cout<<"Inserte la ciudad de inicio: "<<endl;
+    cin>>inicio;
+    graph.bfs(inicio);
+    graph.dfs(inicio);
+*/
+
+    //4.4
+    // Get city names from user
+    string cityStart, cityEnd;
+    cout << "Ingrese la ciudad de inicio: ";
+    cin >> cityStart;
+    cout << "Ingrese la ciudad de destino: ";
+    cin >> cityEnd;
+
+    // Encontrar la ruta más corta por tren y por carro
+    findShortestPathByTrain(cityStart, cityEnd, graph);
+    findShortestPathByCar(cityStart, cityEnd, graph);
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void quickSort(vector<string>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+int partition(vector<string>& arr, int low, int high) {
+    string pivot = arr[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return (i + 1);
+}
+
+template <class T>
+int findCityIndex(const T& city, const vector<T>& vertices) {
+    auto it = find(vertices.begin(), vertices.end(), city);
+    if (it != vertices.end()) {
+        return distance(vertices.begin(), it);
+    } else {
+        return -1; // Retorna -1 si la ciudad no se encuentra en el grafo
+    }
+}
+
+// Función para encontrar la ruta más corta entre dos ciudades por tren
+template <class T>
+void findShortestPathByTrain(const T& start, const T& end, const Graph<T>& graph) {
+    int startIndex = findCityIndex(start, graph.getVertices());
+    int endIndex = findCityIndex(end, graph.getVertices());
+
+    if (startIndex == -1 || endIndex == -1) {
+        cout << "Una o ambas ciudades no existen en el grafo." << endl;
+        return;
+    }
+
+    pair<vector<int>, vector<int>> result = graph.dijkstra(start);
+    int distance = result.first[endIndex];
+    int time = result.second[endIndex];
+
+    cout << "Ruta más corta entre " << start << " y " << end << " por tren:" << endl;
+    cout << "Distancia: " << distance << " Tiempo: " << time << endl;
+}
+
+// Función para encontrar la ruta más corta entre dos ciudades por carro
+template <class T>
+void findShortestPathByCar(const T& start, const T& end, const Graph<T>& graph) {
+    int startIndex = findCityIndex(start, graph.getVertices());
+    int endIndex = findCityIndex(end, graph.getVertices());
+
+    if (startIndex == -1 || endIndex == -1) {
+        cout << "Una o ambas ciudades no existen en el grafo." << endl;
+        return;
+    }
+
+    pair<vector<int>, vector<int>> result = graph.dijkstra(start); // Utiliza la versión para carros
+    int distance = result.first[endIndex];
+    int time = result.second[endIndex];
+
+    cout << "Ruta más corta entre " << start << " y " << end << " por carro:" << endl;
+    cout << "Distancia: " << distance << " Tiempo: " << time << endl;
+}
+
